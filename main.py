@@ -1,5 +1,5 @@
 import sys
-from src.randomArr import runPushSwap
+from src.runPush_swap import runPushSwap
 from src.error import argCheck
 
 args = sys.argv
