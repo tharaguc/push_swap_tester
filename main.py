@@ -10,9 +10,13 @@ args = sys.argv
 def main():
 	argCheck(args)
 	num, rep = int(args[1]), int(args[2])
-	sum = 0
+	sum, max, min = 0, 0, 0
 	for _ in range(rep):
 		res, ok_ko, psarg, leak = runPushSwap(num)
+		if res > max:
+			max = res
+		if res < min:
+			min = res
 		print(f"[ {psarg} ]", end="\n-------------\n")
 		if ok_ko == 'OK\n':
 			print(f">> Actions: {cyan(res)}, Checker: {green('OK')},", end=' ')
@@ -23,7 +27,9 @@ def main():
 		else:
 			print(f"Leak: {red('KO')}", end="\n=============\n\n")
 		sum = sum + res
-	print(f'Average: {cyan(sum / rep)}', end="\n\n")
+	print(f'Max    : {cyan(max)}')
+	print(f'Average: {cyan(sum / rep)}')
+	print(f'Min    : {cyan(min)}', end='\n\n')
 
 if __name__ == "__main__":
 	main()
