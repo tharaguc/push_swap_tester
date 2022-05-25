@@ -1,3 +1,4 @@
+from lib2to3.pgen2.token import COLON
 import sys
 sys.dont_write_bytecode = True
 
@@ -15,7 +16,7 @@ def main():
 		res , ok_ko, psarg = runPushSwap(num)
 		print(f"[ {psarg} ]")
 		if ok_ko == 'OK\n':
-			print(f"{res} >> {Color.GREEN}{ok_ko}{Color.RESET}")
+			print(f"{Color.CYAN}{res}{Color.RESET} >> {Color.GREEN}{ok_ko}{Color.RESET}")
 		else:
 			print(f"{res} >> {Color.RED}{ok_ko}{Color.RESET}")
 		sum = sum + res
