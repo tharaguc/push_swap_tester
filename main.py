@@ -3,18 +3,23 @@ sys.dont_write_bytecode = True
 
 from src.runPush_swap import runPushSwap
 from src.error import argCheck
+from config.color import Color
 
 args = sys.argv
 
 def main():
-	sum = 0
 	argCheck(args)
-	num = int(args[1])
-	for _ in range(100):
-		res , ok_ko= runPushSwap(num)
-		print(f"{res} >> {ok_ko}", end='')
+	num, rep = int(args[1]), int(args[2])
+	sum = 0
+	for _ in range(rep):
+		res , ok_ko, psarg = runPushSwap(num)
+		print(f"[ {psarg} ]")
+		if ok_ko == 'OK\n':
+			print(f"{res} >> {Color.GREEN}{ok_ko}{Color.RESET}")
+		else:
+			print(f"{res} >> {Color.RED}{ok_ko}{Color.RESET}")
 		sum = sum + res
-	print(f'Average: {sum / 100}')
+	print(f'Average: {Color.CYAN}{sum / rep}{Color.RESET}', end="\n\n")
 
 if __name__ == "__main__":
 	main()

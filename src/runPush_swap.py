@@ -9,4 +9,4 @@ def runPushSwap(n):
 	command2 = f"./bin/push_swap {str_l} | ./bin/checker_Mac {str_l}"
 	count = subprocess.run(command1, shell=True, capture_output=True, text=True)
 	ok_ko = subprocess.run(command2, shell=True, capture_output=True, text=True)
-	return int(count.stdout), ok_ko.stdout
+	return int(count.stdout), ok_ko.stdout, str_l
