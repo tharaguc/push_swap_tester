@@ -12,12 +12,16 @@ def main():
 	num, rep = int(args[1]), int(args[2])
 	sum = 0
 	for _ in range(rep):
-		res , ok_ko, psarg = runPushSwap(num)
+		res, ok_ko, psarg, leak = runPushSwap(num)
 		print(f"[ {psarg} ]")
 		if ok_ko == 'OK\n':
-			print(f"{Color.CYAN}{res}{Color.RESET} >> {Color.GREEN}{ok_ko}{Color.RESET}")
+			print(f"{Color.CYAN}{res}{Color.RESET} >> {Color.GREEN}OK{Color.RESET}", end=' ')
 		else:
-			print(f"{res} >> {Color.RED}{ok_ko}{Color.RESET}")
+			print(f"{res} >> {Color.RED}KO{Color.RESET}")
+		if leak == 0:
+			print(f"leak >> {Color.GREEN}OK{Color.RESET}", end="\n\n")
+		else:
+			print(f"leak >> {Color.RED}KO{Color.RESET}", end="\n\n")
 		sum = sum + res
 	print(f'Average: {Color.CYAN}{sum / rep}{Color.RESET}', end="\n\n")
 
