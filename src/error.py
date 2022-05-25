@@ -1,6 +1,6 @@
 USAGE = "Usage: python3 main.py [Number]"
 
-def check(args):
+def argCheck(args):
 	if len(args) != 2:
 		errExit(USAGE)
 	if args[1].isnumeric() == False:

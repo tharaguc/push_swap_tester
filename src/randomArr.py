@@ -1,7 +1,7 @@
 import random
 import subprocess
 
-def run(n):
+def runPushSwap(n):
 	l = list(range(n))
 	random.shuffle(l)
 	str_l = " ".join([str(n) for n in l])
