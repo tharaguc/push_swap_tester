@@ -3,7 +3,7 @@ sys.dont_write_bytecode = True
 
 from src.runPush_swap import runPushSwap
 from src.error import argCheck
-from config.color import Color
+from config.color import green, red, cyan
 
 args = sys.argv
 
@@ -13,17 +13,17 @@ def main():
 	sum = 0
 	for _ in range(rep):
 		res, ok_ko, psarg, leak = runPushSwap(num)
-		print(f"[ {psarg} ]")
+		print(f"[ {psarg} ]", end="\n-------------\n")
 		if ok_ko == 'OK\n':
-			print(f"{Color.CYAN}{res}{Color.RESET} >> {Color.GREEN}OK{Color.RESET}", end=' ')
+			print(f">> Actions: {cyan(res)}, Checker: {green('OK')},", end=' ')
 		else:
-			print(f"{res} >> {Color.RED}KO{Color.RESET}")
+			print(f">> Actions: {cyan(res)}, Checker: {red('KO')},", end=' ')
 		if leak == 0:
-			print(f"leak >> {Color.GREEN}OK{Color.RESET}", end="\n\n")
+			print(f"Leak: {green('OK')}", end="\n=============\n\n")
 		else:
-			print(f"leak >> {Color.RED}KO{Color.RESET}", end="\n\n")
+			print(f"Leak: {red('KO')}", end="\n=============\n\n")
 		sum = sum + res
-	print(f'Average: {Color.CYAN}{sum / rep}{Color.RESET}', end="\n\n")
+	print(f'Average: {cyan(sum / rep)}', end="\n\n")
 
 if __name__ == "__main__":
 	main()
