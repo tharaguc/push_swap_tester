@@ -1,4 +1,6 @@
 import sys
+sys.dont_write_bytecode = True
+
 from src.runPush_swap import runPushSwap
 from src.error import argCheck
 
