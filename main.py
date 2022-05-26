@@ -19,7 +19,7 @@ def main():
 			max = res
 		if res < min:
 			min = res
-		print(f"[ {psarg} ]", end="\n-------------\n")
+		print(f'$> ./push_swap "{psarg}"', end="\n-------------\n")
 		if ok_ko == 'OK\n':
 			print(f">> Actions: {cyan(res)}, Checker: {green('OK')},", end=' ')
 		else:
