@@ -10,9 +10,11 @@ args = sys.argv
 def main():
 	argCheck(args)
 	num, rep = int(args[1]), int(args[2])
-	sum, max, min = 0, 0, 0
-	for _ in range(rep):
+	sum, max = 0, 0
+	for i in range(rep):
 		res, ok_ko, psarg, leak = runPushSwap(num)
+		if i == 0:
+			min = res
 		if res > max:
 			max = res
 		if res < min:
